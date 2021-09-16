@@ -1,0 +1,190 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menggambar Primitif</title>
+    <script src="main.js"></script>
+</head>
+
+<body onload="main()">
+    <div style="display: grid; grid-template-columns: auto auto auto;">
+        <div>
+            <h2>Points</h2>
+            <canvas id="canvThreeDots" width="300" height="200" style="border: 1px; border-color: red;"></canvas>
+            <script type="notjs" id="fragmentShaderCodeThreeDots">
+                void main(){
+                    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+                }
+            </script>
+            <script type="notjs" id="vertexShaderCodeThreeDots">
+                attribute vec2 a_position;
+        
+                void main() {
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                    gl_PointSize = 20.0;
+                }
+            </script>
+        </div>
+        <div>
+            <h2>Line Strip</h2>
+            <canvas id="canvLineStrip" width="300" height="200" style="border: 1px; border-color: red;"></canvas>
+            <script type="notjs" id="fragmentShaderCodeLineStrip">
+                void main(){
+                    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+                }
+            </script>
+            <script type="notjs" id="vertexShaderCodeLineStrip">
+                attribute vec2 a_position;
+        
+                void main() {
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                    gl_PointSize = 20.0;
+                }
+            </script>
+        </div>
+        <div>
+            <h2>Line Loop</h2>
+            <canvas id="canvLineLoop" width="300" height="200" style="border: 1px; border-color: red;"></canvas>
+            <script type="notjs" id="fragmentShaderCodeLineLoop">
+                void main(){
+                    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+                }
+            </script>
+            <script type="notjs" id="vertexShaderCodeLineLoop">
+                attribute vec2 a_position;
+        
+                void main() {
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                    gl_PointSize = 20.0;
+                }
+            </script>
+        </div>
+        <div>
+            <h2>Lines</h2>
+            <canvas id="canvLines" width="300" height="200" style="border: 1px; border-color: red;"></canvas>
+            <script type="notjs" id="fragmentShaderCodeLines">
+                void main(){
+                    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+                }
+            </script>
+            <script type="notjs" id="vertexShaderCodeLines">
+                attribute vec2 a_position;
+        
+                void main() {
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                    gl_PointSize = 20.0;
+                }
+            </script>
+        </div>
+        <div>
+            <h2>Triangles</h2>
+            <canvas id="canvTriangles" width="300" height="200" style="border: 1px; border-color: red;"></canvas>
+            <script type="notjs" id="fragmentShaderCodeTriangles">
+                void main(){
+                    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+                }
+            </script>
+            <script type="notjs" id="vertexShaderCodeTriangles">
+                attribute vec2 a_position;
+        
+                void main() {
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                    gl_PointSize = 20.0;
+                }
+            </script>
+        </div>
+        <div>
+            <h2>Triangle Strip</h2>
+            <canvas id="canvTriangleStrip" width="300" height="200" style="border: 1px; border-color: red;"></canvas>
+            <script type="notjs" id="fragmentShaderCodeTriangleStrip">
+                void main(){
+                    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+                }
+            </script>
+            <script type="notjs" id="vertexShaderCodeTriangleStrip">
+                attribute vec2 a_position;
+        
+                void main() {
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                    gl_PointSize = 20.0;
+                }
+            </script>
+        </div>
+        <div>
+            <h2>Triangle Fan</h2>
+            <canvas id="canvTriangleFan" width="300" height="200" style="border: 1px; border-color: red;"></canvas>
+            <script type="notjs" id="fragmentShaderCodeTriangleFan">
+                void main(){
+                    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+                }
+            </script>
+            <script type="notjs" id="vertexShaderCodeTriangleFan">
+                attribute vec2 a_position;
+        
+                void main() {
+                    gl_Position = vec4(a_position, 0.0, 1.0);
+                    gl_PointSize = 20.0;
+                }
+            </script>
+        </div>
+    </div>
+    <div>
+        <h1>Try Your Own!</h1>
+        <canvas id="tryYourOwn" width="300" height="200" style="border: 1px; border-color: red;"></canvas>
+        <input type="hidden" id="verticeState" name="valVertices" value="3">
+        <input type="hidden" id="typeState" name="valTypes" value="points">
+
+        <div>
+            <p>Choose Number of Vertices</p>
+
+            <input type="radio" name="optVertices" id="three" value="three">
+            <label for="three">Three</label>
+
+            <input type="radio" name="optVertices" id="six" value="six">
+            <label for="six">Six</label>
+        </div>
+
+        <div>
+            <p>Choose Type of Render</p>
+
+            <input type="radio" name="optTypes" id="optPoints" value="points">
+            <label for="optPoints">Points</label>
+
+            <input type="radio" name="optTypes" id="optLineStrip" value="lineStrip">
+            <label for="optLineStrip">Line Strip</label>
+
+            <input type="radio" name="optTypes" id="optLineLoop" value="lineLoop">
+            <label for="optLineLoop">Line Loop</label>
+
+            <input type="radio" name="optTypes" id="optLines" value="lines">
+            <label for="optLines">Lines</label>
+
+            <input type="radio" name="optTypes" id="optTriangles" value="triangles">
+            <label for="optTriangles">Triangles</label>
+
+            <input type="radio" name="optTypes" id="optTriangleStrip" value="triangleStrip">
+            <label for="optTraingleStrip">Triangle Strip</label>
+
+            <input type="radio" name="optTypes" id="optTriangleFan" value="triangleFan">
+            <label for="optTriangleFan">Triangle Fan</label>
+        </div>
+
+        <script type="notjs" id="fragmentShaderCodeTryYourOwn">
+            void main(){
+                gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+            }
+        </script>
+        <script type="notjs" id="vertexShaderCodeTryYourOwn">
+            attribute vec2 a_position;
+    
+            void main() {
+                gl_Position = vec4(a_position, 0.0, 1.0);
+                gl_PointSize = 20.0;
+            }
+        </script>
+    </div>
+</body>
+
+</html>
